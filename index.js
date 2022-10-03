@@ -41,7 +41,15 @@ app.get("/unirseAPartida/:nick/:codigo",function(request,response){
   response.send(res);
 });
 
-// Start the server
+app.get("/obtenerPartidas",function(request,response){
+  let lista=juego.obtenerPartidas();
+  response.send(lista);
+});
+
+app.get("/obtenerPartidasDisponibles",function(request,response){
+  let lista=juego.obtenerPartidasDisponibles();
+  response.send(lista);
+});
 
 app.listen(PORT, () => {
   console.log(`App está escuchando en el puerto ${PORT}`);

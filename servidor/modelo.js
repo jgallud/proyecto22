@@ -53,12 +53,12 @@ function Juego(){
 	this.obtenerPartidas=function(){
 		let lista=[];
 		for (let key in this.partidas){
-			lista.push({"codigo":key,"owner":this.partidas[key].owner});
+			lista.push({"codigo":key,"owner":this.partidas[key].owner.nick});
 		}
 		return lista;
 	}
 	this.obtenerPartidasDisponibles=function(){
-		//devolver sólo las partidas sin completar
+
 	}
 }
 
@@ -78,17 +78,27 @@ function Partida(codigo,usr){
 	this.owner=usr;
 	this.jugadores=[];
 	this.fase="inicial"; //new Inicial()
+	this.maxJugadores=2;
 	this.agregarJugador=function(usr){
 		let res=this.codigo;
-		if (this.jugadores.length<2){
+		if (this.hayHueco){
 			this.jugadores.push(usr);
-			console.log("El usuario "+usr.nick+" se une a la partida "+this.codigo)
+			console.log("El usuario "+usr.nick+" se une a la partida "+this.codigo);
+			this.comprobarFase();
 		}
 		else{
 			res=-1;
 			console.log("La partida está completa")
 		}
 		return res;
+	}
+	this.comprobarFase=function(){
+		if (!this.hayHueco()){
+			this.fase="jugando";
+		}
+	}
+	this.hayHueco=function(){
+		return (this.jugadores.length<this.maxJugadores)
 	}
 	this.agregarJugador(this.owner);
 }
