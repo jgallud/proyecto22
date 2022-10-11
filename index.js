@@ -7,13 +7,6 @@ const PORT = process.env.PORT || 3000;
 
 let juego = new modelo.Juego();
 
-// app.get('/', (req, res) => {
-//   res
-//     .status(200)
-//     .send("Hola")
-//     .end();
-// });
-
 app.use(express.static(__dirname + "/"));
 
 app.get("/", function(request,response){

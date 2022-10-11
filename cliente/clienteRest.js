@@ -10,7 +10,8 @@ function ClienteRest(){
 				cli.nick=data.nick;
 				//ws.nick=data.nick;
 				//$.cookie("nick",ws.nick);
-				iu.mostrarHome();
+				cli.obtenerListaPartidas();
+				iu.mostrarHome();//iu.mostrarHome(data.nick)
 			}
 			else{
 				console.log("No se ha podido registrar el usuario")
@@ -19,13 +20,14 @@ function ClienteRest(){
 			}
 		});
 	}
-	this.crearPartida=function(nick){
+	this.crearPartida=function(){
 		let cli=this;
+		let nick=cli.nick;
 		$.getJSON("/crearPartida/"+nick,function(data){
-			//se ejecuta cuando conteste el servidor
 			console.log(data);
 			if (data.codigo!=-1){
-				console.log("Usuario "+cli.nick+" crea partida codigo: "+data.codigo)
+				console.log("Usuario "+nick+" crea partida codigo: "+data.codigo)
+				iu.mostrarCodigo(data.codigo);
 				//ws.nick=data.nick;
 				//$.cookie("nick",ws.nick);
 				//iu.mostrarHome(data);
@@ -53,6 +55,14 @@ function ClienteRest(){
 				//iu.mostrarModal("El nick ya está en uso");
 				//iu.mostrarAgregarJugador();
 			}
+		});
+	}
+	this.obtenerListaPartidas=function(){
+		let cli=this;
+		//obtenerPartidasDisponibles
+		$.getJSON("/obtenerPartidas",function(lista){
+			console.log(lista);
+			iu.mostrarListaDePartidas(lista);
 		});
 	}
 }
