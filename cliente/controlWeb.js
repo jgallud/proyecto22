@@ -50,6 +50,7 @@ function ControlWeb(){
         $('#crearPartida').append(cadena);
         $("#btnCP").on("click",function(e){		
 			$("#mCP").remove();
+			$('#mLP').remove();
 			rest.crearPartida();
 		})
 	}
@@ -68,5 +69,28 @@ function ControlWeb(){
 		cadena=cadena+"</div>"
 		$('#listaPartidas').append(cadena);
 		
+	}
+	this.mostrarListaDePartidasDisponibles=function(lista){
+		$('#mLP').remove();
+		let cadena="<div class='row' id='mLP'>";
+		cadena=cadena+"<div class='col'>";
+		cadena=cadena+"<h3>Lista de partidas disponibles</h3>";
+		cadena=cadena+'<ul class="list-group">';
+		for(i=0;i<lista.length;i++){
+		  cadena = cadena+'<li class="list-group-item"><a href="#" value="'+lista[i].codigo+'"> Nick propietario: '+lista[i].owner+'</a></li>';
+		}
+		cadena=cadena+"</ul>";
+		cadena=cadena+"</div></div>"
+		$('#listaPartidas').append(cadena);
+
+		$(".list-group a").click(function(){
+	        codigo=$(this).attr("value");
+   	        console.log(codigo);
+	        if (codigo){
+	            $('#mLP').remove();
+	            $('#mCP').remove();
+	            rest.unirseAPartida(codigo);
+	        }
+	    });		
 	}
 }

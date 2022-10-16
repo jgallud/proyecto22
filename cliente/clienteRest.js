@@ -10,7 +10,7 @@ function ClienteRest(){
 				cli.nick=data.nick;
 				//ws.nick=data.nick;
 				//$.cookie("nick",ws.nick);
-				cli.obtenerListaPartidas();
+				cli.obtenerListaPartidasDisponibles();
 				iu.mostrarHome();//iu.mostrarHome(data.nick)
 			}
 			else{
@@ -39,13 +39,14 @@ function ClienteRest(){
 			}
 		});
 	}
-	this.unirseAPartida=function(nick,codigo){
+	this.unirseAPartida=function(codigo){
 		let cli=this;
-		$.getJSON("/unirseAPartida/"+nick+"/"+codigo,function(data){
+		$.getJSON("/unirseAPartida/"+cli.nick+"/"+codigo,function(data){
 			//se ejecuta cuando conteste el servidor
 			//console.log(data);
 			if (data.codigo!=-1){
-				console.log("Usuario "+cli.nick+" se une a partida codigo: "+data.codigo)
+				console.log("Usuario "+cli.nick+" se une a partida codigo: "+data.codigo);
+				iu.mostrarCodigo(data.codigo);
 				//ws.nick=data.nick;
 				//$.cookie("nick",ws.nick);
 				//iu.mostrarHome(data);
@@ -63,6 +64,13 @@ function ClienteRest(){
 		$.getJSON("/obtenerPartidas",function(lista){
 			console.log(lista);
 			iu.mostrarListaDePartidas(lista);
+		});
+	}
+	this.obtenerListaPartidasDisponibles=function(){
+		let cli=this;
+		$.getJSON("/obtenerPartidasDisponibles",function(lista){
+			console.log(lista);
+			iu.mostrarListaDePartidasDisponibles(lista);
 		});
 	}
 }

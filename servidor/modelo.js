@@ -58,7 +58,13 @@ function Juego(){
 		return lista;
 	}
 	this.obtenerPartidasDisponibles=function(){
-
+		let lista=[];
+		for (let key in this.partidas){
+			if (this.partidas[key].fase=="inicial"){
+				lista.push({"codigo":key,"owner":this.partidas[key].owner.nick});
+			}
+		}
+		return lista;
 	}
 }
 
