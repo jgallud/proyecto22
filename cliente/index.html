@@ -8,6 +8,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="./cliente/clienteRest.js"></script>
 	<script src="./cliente/controlWeb.js"></script>
 </head>
@@ -27,10 +28,27 @@
 	    </div>
 	  </div>
 	</div>
+	<div class="modal" id="miModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Atención</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body" id="contenidoModal">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
 	<script>
 		rest=new ClienteRest();
 		iu=new ControlWeb();
-		iu.mostrarAgregarUsuario();
+		//iu.mostrarAgregarUsuario();
+		iu.comprobarCookie();
 	</script>
 </body>
 </html>

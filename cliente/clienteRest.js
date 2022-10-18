@@ -9,13 +9,12 @@ function ClienteRest(){
 				console.log("Usuario "+data.nick+" registrado")
 				cli.nick=data.nick;
 				//ws.nick=data.nick;
-				//$.cookie("nick",ws.nick);
-				cli.obtenerListaPartidasDisponibles();
+				$.cookie("nick",data.nick);
 				iu.mostrarHome();//iu.mostrarHome(data.nick)
 			}
 			else{
 				console.log("No se ha podido registrar el usuario")
-				//iu.mostrarModal("El nick ya está en uso");
+				iu.mostrarModal("El nick ya está en uso");
 				iu.mostrarAgregarUsuario();
 			}
 		});
