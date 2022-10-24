@@ -9,8 +9,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="./cliente/clienteRest.js"></script>
 	<script src="./cliente/controlWeb.js"></script>
+	<script src="./cliente/clienteWS.js"></script>
 </head>
 <body>
 	<div class="container" style="margin-top:30px">
@@ -47,6 +49,7 @@
 	<script>
 		rest=new ClienteRest();
 		iu=new ControlWeb();
+		cws=new ClienteWS();
 		//iu.mostrarAgregarUsuario();
 		iu.comprobarCookie();
 	</script>

@@ -55,8 +55,9 @@ function ControlWeb(){
 			$('#mLP').remove();
 			$('#mH').remove();
 			//rest.crearPartida();
-			$.removeCookie("nick");
-			iu.comprobarCookie();
+			rest.usuarioSale();
+			//$.removeCookie("nick");
+			//iu.comprobarCookie();
 		});
 	}
 	this.mostrarCrearPartida=function(){
