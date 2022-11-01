@@ -10,6 +10,7 @@ function ClienteRest(){
 				cli.nick=data.nick;
 				//ws.nick=data.nick;
 				$.cookie("nick",data.nick);
+				cws.conectar();
 				iu.mostrarHome();//iu.mostrarHome(data.nick)
 			}
 			else{

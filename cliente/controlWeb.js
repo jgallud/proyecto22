@@ -2,6 +2,7 @@ function ControlWeb(){
 	this.comprobarCookie=function(){
 		if ($.cookie("nick")){
 			rest.nick=$.cookie("nick");
+			cws.conectar();
 			this.mostrarHome();
 		}
 		else{
@@ -71,7 +72,8 @@ function ControlWeb(){
         $("#btnCP").on("click",function(e){		
 			$("#mCP").remove();
 			$('#mLP').remove();
-			rest.crearPartida();
+			//rest.crearPartida();
+			cws.crearPartida();
 		});
 	}
 	this.mostrarCodigo=function(codigo){
@@ -95,7 +97,7 @@ function ControlWeb(){
 		let cadena="<div class='row' id='mLP'>";
 		cadena=cadena+"<div class='col'>";
 		cadena=cadena+"<h2>Lista de partidas disponibles</h2>";
-		cadena=cadena+'<button id="btnAL" class="btn btn-primary mb-2 mr-sm-2">Actualizar</button>';
+		//cadena=cadena+'<button id="btnAL" class="btn btn-primary mb-2 mr-sm-2">Actualizar</button>';
 		cadena=cadena+'<ul class="list-group">';
 		for(i=0;i<lista.length;i++){
 		  cadena = cadena+'<li class="list-group-item"><a href="#" value="'+lista[i].codigo+'"> Nick propietario: '+lista[i].owner+'</a></li>';
@@ -110,7 +112,8 @@ function ControlWeb(){
 	        if (codigo){
 	            $('#mLP').remove();
 	            $('#mCP').remove();
-	            rest.unirseAPartida(codigo);
+	            //rest.unirseAPartida(codigo);
+	            cws.unirseAPartida(codigo);
 	        }
 	    });		
 	    $("#btnAL").on("click",function(e){		

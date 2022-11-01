@@ -63,6 +63,11 @@ function Juego(){
 		}
 		return lista;
 	}
+	this.obtenerPartida=function(codigo){
+		if (this.partidas[codigo]){
+			return this.partidas[codigo];
+		}
+	}
 	this.obtenerPartidasDisponibles=function(){
 		let lista=[];
 		for (let key in this.partidas){
@@ -126,6 +131,9 @@ function Partida(codigo,usr){
 			}
 		}
 		return false;
+	}
+	this.esJugando=function(){
+		return this.fase=="jugando";
 	}
 	this.agregarJugador(this.owner);
 }
