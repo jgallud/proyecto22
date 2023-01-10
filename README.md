@@ -9,4 +9,4 @@ Este repositorio contiene la arquitectura base de una solución software estilo 
 - Los usuarios puede unirse a partidas disponibles (las que tienen sólo un jugador)
 
 ## Continuación del proyecto
-Los proyectos de esta asignatura comienzan en un repo público y en la semana 8 (de 15 semanas que dura el curso) se continúa en un repo privado para que cada equipo desarrolle su versión. Una demo del proyecto privado desplegado con GCP Cloud Run se puede encontrar en esta [url](https://batallaobs-ynqigjs6oa-ew.a.run.app/) 
+Los proyectos de esta asignatura comienzan en un repo público y en la semana 8 (de 15 semanas que dura el curso) se continúa en un repo privado para que cada equipo desarrolle su versión. Una demo del proyecto privado desplegado con GCP Cloud Run se puede encontrar en esta dirección [visita el prototipo de la Batalla Naval](https://batallaobs-vyqothtfta-ew.a.run.app/) 
